@@ -12,4 +12,4 @@ Run the app using local webserver with `cordova serve`
 1. Create your feature branch `git checkout -b develop_<your_name>`
 2. Commit your changes `git commit -m 'Add some feature'`
 3. Push to the branch `git push origin develop_<your_name>`
-4. Merge your branch into develop `git checkout deevlop && git merge develop_<your_name>`
+4. Merge your branch into develop `git checkout develop && git merge develop_<your_name>`
