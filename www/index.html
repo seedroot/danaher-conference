@@ -32,18 +32,32 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/register.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <title>DLC 2016</title>
     </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+    <body class="body" ng-app="dlc">
+        <div class="row main">
+            <div ui-view>
             </div>
         </div>
+
+
+        <script type="text/javascript" src="js/built.min.js"></script>
+        <script type="text/javascript" src="js/angular.js"></script>
+        <script type="text/javascript" src="js/ng-cordova.min.js"></script>
+        <script type="text/javascript" src="js/angular-ui-router.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="app/module.js"></script>
+        <script type="text/javascript" src="app/registration/splash.controller.js"></script>
+        <script type="text/javascript" src="app/registration/login.controller.js"></script>
+        <script type="text/javascript" src="app/registration/selfie.controller.js"></script>
+        <script type="text/javascript" src="app/registration/basic.controller.js"></script>
+        <script type="text/javascript" src="app/registration/questions.controller.js"></script>
+        <script type="text/javascript" src="app/registration/tellUs.controller.js"></script>
+        <script type="text/javascript" src="app/registration/done.controller.js"></script>
+
     </body>
 </html>

@@ -1,0 +1,58 @@
+<header class="col-sm-12 header">
+		<p class="header-text">
+			<img class="back" src="img/next.svg"><span> Profile</span>	
+		</p>
+</header>
+<div class="selfie">	
+</div>
+<div class="selfie-front">	
+</div>
+
+<div class="col-sm-12 form" id="form">
+	
+      <center>
+      	 <dl>
+              <dd>
+					<div class="input-group input col-sm-12">
+				      <input type="text" class="form-control"  placeholder="Full Name">
+				    </div>
+					<div class="input-group input col-sm-12">
+					    <input type="phone" class="form-control"  placeholder="Contact Number">
+					</div>
+					<div class="input-group input col-sm-12">
+					    <input type="email" class="form-control"  placeholder="Email Address">
+					</div>
+					<div class="input-group input col-sm-12">
+					    <input type="text" class="form-control"  placeholder="Company Name">
+					</div>
+					<div class="input-group input col-sm-12">
+					    <input type="text" class="form-control"  placeholder="Designation">
+					</div>
+					<div class="input-group input col-sm-12">
+					    <input type="text" class="form-control "  placeholder="Arrival Date/ 03 /2016">
+					</div>
+					<div class="input-group input col-sm-12">
+					    <input type="text" class="form-control"  placeholder="Depature Date/ 03 /2016">
+					</div>
+              </dd>
+              
+        </dl>
+      </center>
+    
+	<center>
+		<button class="btn btn-default bttn">Next
+		</button>
+	</center>
+</div>
+<script type="text/javascript">
+	document.onscroll = function (e) {
+		if(window.scrollY > 0){
+			document.getElementById('form').style.border = 0;
+			document.getElementById('form').style.boxShadow = "0px 0px 20px rgba(50, 50, 50, 0.75)";
+		}
+		else{
+			//document.getElementById('form').style.borderTop = "0.1em solid black";
+			document.getElementById('form').style.boxShadow = "";
+		}
+	}
+</script>
