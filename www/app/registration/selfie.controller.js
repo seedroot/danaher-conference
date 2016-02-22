@@ -9,6 +9,15 @@
 	function SelfieController ($state, config, $cordovaCamera) {
 		var vm = this;
 		vm.attendee = JSON.parse(window.localStorage.attendee);
+		if(vm.attendee.profile_image.length > 0){
+			vm.img = vm.attendee.profile_image;
+		}
+		else{
+			vm.img = "img/selfie.png";
+		}
+
+		vm.openCamera = openCamera;
+		vm.next = next;
 
 		function openCamera () {
 			var options = {
@@ -22,37 +31,26 @@
 		    };
 
 		    $cordovaCamera.getPicture(options).then(function(imageData) {
-		      var image = document.getElementById('imgSelfie');
-		      image.src = "data:image/jpeg;base64," + imageData;
-		      uploadSelfie(imageData);
+		      vm.img = "data:image/jpeg;base64," + imageData;
 		    }, function(err) {
-		      // error
+		      	vm.msg = 'Something went wrong, Please try again'
 		    });	
 		}
 
-		function uploadSelfie (image) {
-			var upload = Built.App('blt5d4sample2633b').Upload();
-			upload = upload.setFile(image);
+		function next () {
+			var _payload = {
+				uid: vm.attendee.uid,
+				profile_image: vm.img
+			}
 
-			upload
-				.save()
-				.then(function(upload) {
-					var _payload = {
-						uid: vm.attendee.uid,
-						profile_image: upload.uid
-					}
-
-				var attendees = Built.App('blte2d77fe90da1fd4d').Class('attendees').Object;
-				attendees(_payload).save()
-					.then(function(attendee) {
-					    //window.localStorage.attendee = JSON.stringify(attendee.toJSON());
-					    $state.go('done'); 
-					}, function(error) {
-					    vm.msg = error;
-					});
-
+			var attendees = Built.App('blte2d77fe90da1fd4d').Class('attendees').Object;
+			//var attendeeObj = attendees(vm.attendee.uid);
+			attendees(_payload).save()
+				.then(function(attendee) {
+				    //window.localStorage.attendee = JSON.stringify(attendee.toJSON());
+				    $state.go('basic'); 
 				}, function(error) {
-				  	console.log(error);
+				    vm.msg = error;
 				});
 		}
 	}

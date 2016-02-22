@@ -3,11 +3,11 @@
 			<img class="back" src="img/next.svg"><span> Profile</span>	
 		</p>
 </header>
-<div class="selfie">	
+<div class="hide">
+	<img src="{{ vm.img }}" class="selfie">
+	<img src="{{ vm.img }}" class="selfie-front">
 </div>
-<div class="selfie-front">	
-</div>
-<div class="edit">
+<div class="edit hide">
 	<img class="pen" src="img/pen.svg">
 </div>
 <label class="err" ng-model="vm.msg"></label>

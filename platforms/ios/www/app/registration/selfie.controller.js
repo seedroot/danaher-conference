@@ -9,54 +9,48 @@
 	function SelfieController ($state, config, $cordovaCamera) {
 		var vm = this;
 		vm.attendee = JSON.parse(window.localStorage.attendee);
+		if(vm.attendee.profile_image.length > 0){
+			vm.img = vm.attendee.profile_image;
+		}
+		else{
+			vm.img = "img/selfie.png";
+		}
+
+		vm.openCamera = openCamera;
+		vm.next = next;
 
 		function openCamera () {
 			var options = {
 		      quality: 50,
 		      destinationType: Camera.DestinationType.DATA_URL,
 		      sourceType: Camera.PictureSourceType.CAMERA,
-		      allowEdit: true,
 		      encodingType: Camera.EncodingType.JPEG,
-		      targetWidth: 100,
-		      targetHeight: 100,
 		      popoverOptions: CameraPopoverOptions,
 		      saveToPhotoAlbum: false,
 		      correctOrientation:true
 		    };
 
 		    $cordovaCamera.getPicture(options).then(function(imageData) {
-		      var image = document.getElementById('imgSelfie');
-		      image.src = "data:image/jpeg;base64," + imageData;
-		      uploadSelfie(imageData);
+		      vm.img = "data:image/jpeg;base64," + imageData;
 		    }, function(err) {
-		      // error
+		      	vm.msg = 'Something went wrong, Please try again'
 		    });	
 		}
 
-		function uploadSelfie (image) {
-			var upload = config.upload;
-			upload = upload.setFile(image);
+		function next () {
+			var _payload = {
+				uid: vm.attendee.uid,
+				profile_image: vm.img
+			}
 
-			upload
-				.save()
-				.then(function(upload) {
-				  	console.log(upload);
-
-				  	var attendeeObj = Built.App('blte2d77fe90da1fd4d').Class('attendees').Object;
-				  	var attendee = attendeeObj(vm.attendee.uid);
-				  	attendee = attendee.set('selfie', upload[0].uid);
-
-				  	project
-						.save()
-						.then(function(attendee) {
-							window.localStorage.attendee = attendee;
-							$state.go('basic');
-						}, function(error) {
-							console.log(error);
-						});
-
+			var attendees = Built.App('blte2d77fe90da1fd4d').Class('attendees').Object;
+			//var attendeeObj = attendees(vm.attendee.uid);
+			attendees(_payload).save()
+				.then(function(attendee) {
+				    //window.localStorage.attendee = JSON.stringify(attendee.toJSON());
+				    $state.go('basic'); 
 				}, function(error) {
-				  	console.log(error);
+				    vm.msg = error;
 				});
 		}
 	}

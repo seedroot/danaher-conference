@@ -9,6 +9,12 @@
 	function BasicController ($state) {
 		var vm = this;
 		vm.attendee  = JSON.parse(window.localStorage.attendee);
+		if(vm.attendee.profile_image.length > 0){
+			vm.img = vm.attendee.profile_image;
+		}
+		else{
+			vm.img = "img/user.png";	
+		}
 
 		vm.next = next;
 
