@@ -30,12 +30,6 @@ buildscript {
     // installed version of Gradle. This dependency is documented at
     // http://tools.android.com/tech-docs/new-build-system/version-compatibility
     // and https://issues.apache.org/jira/browse/CB-8143
-<<<<<<< HEAD
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
-    }
-   }
-=======
     if (gradle.gradleVersion >= "2.2") {
         dependencies {
             classpath 'com.android.tools.build:gradle:1.0.0+'
@@ -50,7 +44,6 @@ buildscript {
         }
     }
 }
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 
 // Allow plugins to declare Maven dependencies via build-extras.gradle.
 repositories {
@@ -58,11 +51,7 @@ repositories {
 }
 
 task wrapper(type: Wrapper) {
-<<<<<<< HEAD
-    gradleVersion = '2.8'
-=======
     gradleVersion = '2.2.1'
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 }
 
 // Configuration properties. Set these via environment variables, build-extras.gradle, or gradle.properties.
@@ -184,44 +173,24 @@ android {
 
     defaultConfig {
         versionCode cdvVersionCode ?: Integer.parseInt("" + privateHelpers.extractIntFromManifest("versionCode") + "0")
-<<<<<<< HEAD
-        applicationId privateHelpers.extractStringFromManifest("package")
-
-=======
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
         if (cdvMinSdkVersion != null) {
             minSdkVersion cdvMinSdkVersion
         }
     }
 
-<<<<<<< HEAD
-    lintOptions {
-      abortOnError false;
-    }
-
-=======
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     compileSdkVersion cdvCompileSdkVersion
     buildToolsVersion cdvBuildToolsVersion
 
     if (Boolean.valueOf(cdvBuildMultipleApks)) {
         productFlavors {
             armv7 {
-<<<<<<< HEAD
-                versionCode defaultConfig.versionCode + 2
-=======
                 versionCode cdvVersionCode ?: defaultConfig.versionCode + 2
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
                 ndk {
                     abiFilters "armeabi-v7a", ""
                 }
             }
             x86 {
-<<<<<<< HEAD
-                versionCode defaultConfig.versionCode + 4
-=======
                 versionCode cdvVersionCode ?: defaultConfig.versionCode + 4
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
                 ndk {
                     abiFilters "x86", ""
                 }

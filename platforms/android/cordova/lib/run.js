@@ -25,27 +25,6 @@ var path  = require('path'),
     build = require('./build'),
     emulator = require('./emulator'),
     device   = require('./device'),
-<<<<<<< HEAD
-    Q = require('q');
-
-/**
- * Runs the application on a device if available. If no device is found, it will
- *   use a started emulator. If no started emulators are found it will attempt
- *   to start an avd. If no avds are found it will error out.
- *
- * @param   {Object}  runOptions  various run/build options. See Api.js build/run
- *   methods for reference.
- *
- * @return  {Promise}
- */
- module.exports.run = function(runOptions) {
-
-    var self = this;
-
-    var install_target = runOptions.device ? '--device' :
-        runOptions.emulator ? '--emulator' :
-        runOptions.target;
-=======
     shell = require('shelljs'),
     Q = require('q');
 
@@ -103,7 +82,6 @@ var path  = require('path'),
         console.log(output);
         return;
     }
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 
     return Q()
     .then(function() {
@@ -112,17 +90,10 @@ var path  = require('path'),
             return device.list()
             .then(function(device_list) {
                 if (device_list.length > 0) {
-<<<<<<< HEAD
-                    self.events.emit('warn', 'No target specified, deploying to device \'' + device_list[0] + '\'.');
-                    install_target = device_list[0];
-                } else {
-                    self.events.emit('warn', 'No target specified, deploying to emulator');
-=======
                     console.log('WARNING : No target specified, deploying to device \'' + device_list[0] + '\'.');
                     install_target = device_list[0];
                 } else {
                     console.log('WARNING : No target specified, deploying to emulator');
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
                     install_target = '--emulator';
                 }
             });
@@ -166,23 +137,9 @@ var path  = require('path'),
             });
         });
     }).then(function(resolvedTarget) {
-<<<<<<< HEAD
-        // Better just call self.build, but we're doing some processing of
-        // build results (according to platformApi spec) so they are in different
-        // format than emulator.install expects.
-        // TODO: Update emulator/device.install to handle this change
-        return build.run.call(self, runOptions, resolvedTarget)
-        .then(function(buildResults) {
-            if (resolvedTarget.isEmulator) {
-                return emulator.wait_for_boot(resolvedTarget.target)
-                .then(function () {
-                    return emulator.install(resolvedTarget, buildResults);
-                });
-=======
         return build.run(buildFlags, resolvedTarget).then(function(buildResults) {
             if (resolvedTarget.isEmulator) {
                 return emulator.install(resolvedTarget, buildResults);
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
             }
             return device.install(resolvedTarget, buildResults);
         });

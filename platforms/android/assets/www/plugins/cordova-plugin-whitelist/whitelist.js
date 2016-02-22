@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-cordova.define("cordova-plugin-whitelist.whitelist", function(require, exports, module) {
-/*
-=======
 cordova.define("cordova-plugin-whitelist.whitelist", function(require, exports, module) { /*
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information

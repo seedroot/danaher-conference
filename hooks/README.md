@@ -20,9 +20,6 @@
 -->
 # Cordova Hooks
 
-<<<<<<< HEAD
-Cordova Hooks represent special scripts which could be added by application and plugin developers or even by your own build system  to customize cordova commands. See Hooks Guide for more details:  http://cordova.apache.org/docs/en/edge/guide_appdev_hooks_index.md.html#Hooks%20Guide.
-=======
 Cordova Hooks represent special scripts which could be added by application and plugin developers or even by your own build system  to customize cordova commands. Hook scripts could be defined by adding them to the special predefined folder (`/hooks`) or via configuration files (`config.xml` and `plugin.xml`) and run serially in the following order:
 * Application hooks from `/hooks`;
 * Application hooks from `config.xml`;
@@ -197,4 +194,3 @@ cross-platform. Some good examples are shown here:
 Also, note that even if you are working on Windows, and in case your hook scripts aren't bat files (which is recommended, if you want your scripts to work in non-Windows operating systems) Cordova CLI will expect a shebang line as the first line for it to know the interpreter it needs to use to launch the script. The shebang line should match the following example:
 
     #!/usr/bin/env [name_of_interpreter_executable]
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c

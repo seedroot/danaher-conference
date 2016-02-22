@@ -19,23 +19,6 @@
        under the License.
 */
 
-<<<<<<< HEAD
-var Api = require('./Api');
-var path  = require('path');
-
-// Support basic help commands
-if(['--help', '/?', '-h', 'help', '-help', '/help'].indexOf(process.argv[2]) >= 0) {
-    console.log('Usage: ' + path.relative(process.cwd(), process.argv[1]));
-    console.log('Cleans the project directory.');
-    process.exit(0);
-}
-
-new Api().clean({argv: process.argv.slice(2)})
-.catch(function(err) {
-    console.error(err.stack);
-    process.exit(2);
-});
-=======
 var build = require('./lib/build'),
     reqs  = require('./lib/check_reqs'),
     args  = process.argv;
@@ -59,4 +42,3 @@ if(args[2] == '--help' ||
         process.exit(2);
     });
 }
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c

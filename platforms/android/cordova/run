@@ -19,38 +19,6 @@
        under the License.
 */
 
-<<<<<<< HEAD
-var Api = require('./Api');
-var nopt = require('nopt');
-var path = require('path');
-
-// Support basic help commands
-if(['--help', '/?', '-h', 'help', '-help', '/help'].indexOf(process.argv[2]) >= 0)
-    require('./lib/run').help();
-
-// Do some basic argument parsing
-var runOpts = nopt({
-    'verbose' : Boolean,
-    'silent' : Boolean,
-    'debug' : Boolean,
-    'release' : Boolean,
-    'nobuild': Boolean,
-    'buildConfig' : path,
-    'archs' : String,
-    'device' : Boolean,
-    'emulator': Boolean,
-    'target' : String
-}, { 'd' : '--verbose' });
-
-// Make runOptions compatible with PlatformApi run method spec
-runOpts.argv = runOpts.argv.remain;
-
-new Api().run(runOpts)
-.catch(function(err) {
-    console.error(err, err.stack);
-    process.exit(2);
-});
-=======
 var run  = require('./lib/run'),
     reqs = require('./lib/check_reqs'),
     args = process.argv;
@@ -67,4 +35,3 @@ if (args[2] == '--help' || args[2] == '/?' || args[2] == '-h' ||
         process.exit(2);
     });
 }
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c

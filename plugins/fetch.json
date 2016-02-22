@@ -1,6 +1,4 @@
 {
-<<<<<<< HEAD
-=======
     "cordova-plugin-camera": {
         "source": {
             "type": "registry",
@@ -9,7 +7,6 @@
         "is_top_level": true,
         "variables": {}
     },
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",

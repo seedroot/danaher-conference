@@ -19,31 +19,17 @@
        under the License.
 */
 
-<<<<<<< HEAD
-var Q     = require('q'),
-    build = require('./build');
-var path = require('path');
-var Adb = require('./Adb');
-var AndroidManifest = require('./AndroidManifest');
-var spawn = require('cordova-common').superspawn.spawn;
-var CordovaError = require('cordova-common').CordovaError;
-var events = require('cordova-common').events;
-=======
 var exec  = require('./exec'),
     Q     = require('q'),
     os    = require('os'),
     build = require('./build'),
     appinfo = require('./appinfo');
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 
 /**
  * Returns a promise for the list of the device ID's found
  * @param lookHarder When true, try restarting adb if no devices are found.
  */
 module.exports.list = function(lookHarder) {
-<<<<<<< HEAD
-    return Adb.devices()
-=======
     function helper() {
         return exec('adb devices', os.tmpdir())
         .then(function(output) {
@@ -58,23 +44,15 @@ module.exports.list = function(lookHarder) {
         });
     }
     return helper()
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     .then(function(list) {
         if (list.length === 0 && lookHarder) {
             // adb kill-server doesn't seem to do the trick.
             // Could probably find a x-platform version of killall, but I'm not actually
             // sure that this scenario even happens on non-OSX machines.
-<<<<<<< HEAD
-            return spawn('killall', ['adb'])
-            .then(function() {
-                events.emit('verbose', 'Restarting adb to see if more devices are detected.');
-                return Adb.devices();
-=======
             return exec('killall adb')
             .then(function() {
                 console.log('Restarting adb to see if more devices are detected.');
                 return helper();
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
             }, function() {
                 // For non-killall OS's.
                 return list;
@@ -88,11 +66,7 @@ module.exports.resolveTarget = function(target) {
     return this.list(true)
     .then(function(device_list) {
         if (!device_list || !device_list.length) {
-<<<<<<< HEAD
-            return Q.reject(new CordovaError('Failed to deploy to device, no devices found.'));
-=======
             return Q.reject('ERROR: Failed to deploy to device, no devices found.');
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
         }
         // default device
         target = target || device_list[0];
@@ -121,24 +95,6 @@ module.exports.install = function(target, buildResults) {
         return module.exports.resolveTarget(target);
     }).then(function(resolvedTarget) {
         var apk_path = build.findBestApkForArchitecture(buildResults, resolvedTarget.arch);
-<<<<<<< HEAD
-        var manifest = new AndroidManifest(path.join(__dirname, '../../AndroidManifest.xml'));
-        var pkgName = manifest.getPackageId();
-        var launchName = pkgName + '/.' + manifest.getActivity().getName();
-        events.emit('log', 'Using apk: ' + apk_path);
-        // This promise is always resolved, even if 'adb uninstall' fails to uninstall app
-        // or the app doesn't installed at all, so no error catching needed.
-        return Adb.uninstall(resolvedTarget.target, pkgName)
-        .then(function() {
-            return Adb.install(resolvedTarget.target, apk_path, {replace: true});
-        }).then(function() {
-            //unlock screen
-            return Adb.shell(resolvedTarget.target, 'input keyevent 82');
-        }).then(function() {
-            return Adb.start(resolvedTarget.target, launchName);
-        }).then(function() {
-            events.emit('log', 'LAUNCH SUCCESS');
-=======
         var launchName = appinfo.getActivityName();
         console.log('Using apk: ' + apk_path);
         console.log('Installing app on device...');
@@ -160,7 +116,6 @@ module.exports.install = function(target, buildResults) {
             console.log('LAUNCH SUCCESS');
         }, function(err) {
             return Q.reject('ERROR: Failed to launch application on device: ' + err);
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
         });
     });
 };

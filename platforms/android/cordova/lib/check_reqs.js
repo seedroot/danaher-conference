@@ -26,24 +26,15 @@ var shelljs = require('shelljs'),
     Q     = require('q'),
     path  = require('path'),
     fs    = require('fs'),
-<<<<<<< HEAD
-    ROOT  = path.join(__dirname, '..', '..');
-var CordovaError = require('cordova-common').CordovaError;
-=======
     which = require('which'),
     ROOT  = path.join(__dirname, '..', '..');
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 
 var isWindows = process.platform == 'win32';
 
 function forgivingWhichSync(cmd) {
     try {
-<<<<<<< HEAD
-        return fs.realpathSync(shelljs.which(cmd));
-=======
         // TODO: Should use shelljs.which() here to have one less dependency.
         return fs.realpathSync(which.sync(cmd));
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     } catch (e) {
         return '';
     }
@@ -52,11 +43,7 @@ function forgivingWhichSync(cmd) {
 function tryCommand(cmd, errMsg, catchStderr) {
     var d = Q.defer();
     child_process.exec(cmd, function(err, stdout, stderr) {
-<<<<<<< HEAD
-        if (err) d.reject(new CordovaError(errMsg));
-=======
         if (err) d.reject(new Error(errMsg));
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
         // Sometimes it is necessary to return an stderr instead of stdout in case of success, since
         // some commands prints theirs output to stderr instead of stdout. 'javac' is the example
         else d.resolve((catchStderr ? stderr : stdout).trim());
@@ -96,21 +83,12 @@ module.exports.check_ant = function() {
 module.exports.check_gradle = function() {
     var sdkDir = process.env['ANDROID_HOME'];
     if (!sdkDir)
-<<<<<<< HEAD
-        return Q.reject(new CordovaError('Could not find gradle wrapper within Android SDK. Could not find Android SDK directory.\n' +
-            'Might need to install Android SDK or set up \'ANDROID_HOME\' env variable.'));
-
-    var wrapperDir = path.join(sdkDir, 'tools', 'templates', 'gradle', 'wrapper');
-    if (!fs.existsSync(wrapperDir)) {
-        return Q.reject(new CordovaError('Could not find gradle wrapper within Android SDK. Might need to update your Android SDK.\n' +
-=======
         return Q.reject('Could not find gradle wrapper within Android SDK. Could not find Android SDK directory.\n' +
             'Might need to install Android SDK or set up \'ANDROID_HOME\' env variable.');
 
     var wrapperDir = path.join(sdkDir, 'tools', 'templates', 'gradle', 'wrapper');
     if (!fs.existsSync(wrapperDir)) {
         return Q.reject(new Error('Could not find gradle wrapper within Android SDK. Might need to update your Android SDK.\n' +
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
             'Looked here: ' + wrapperDir));
     }
     return Q.when();
@@ -142,11 +120,7 @@ module.exports.check_java = function() {
                     if (fs.existsSync(path.join(maybeJavaHome, 'lib', 'tools.jar'))) {
                         process.env['JAVA_HOME'] = maybeJavaHome;
                     } else {
-<<<<<<< HEAD
-                        throw new CordovaError(msg);
-=======
                         throw new Error(msg);
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
                     }
                 }
             } else if (isWindows) {
@@ -238,11 +212,7 @@ module.exports.check_android = function() {
                 process.env['ANDROID_HOME'] = grandParentDir;
                 hasAndroidHome = true;
             } else {
-<<<<<<< HEAD
-                throw new CordovaError('Failed to find \'ANDROID_HOME\' environment variable. Try setting setting it manually.\n' +
-=======
                 throw new Error('Failed to find \'ANDROID_HOME\' environment variable. Try setting setting it manually.\n' +
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
                     'Detected \'android\' command at ' + parentDir + ' but no \'tools\' directory found near.\n' +
                     'Try reinstall Android SDK or update your PATH to include path to valid SDK directory.');
             }
@@ -251,35 +221,18 @@ module.exports.check_android = function() {
             process.env['PATH'] += path.delimiter + path.join(process.env['ANDROID_HOME'], 'platform-tools');
         }
         if (!process.env['ANDROID_HOME']) {
-<<<<<<< HEAD
-            throw new CordovaError('Failed to find \'ANDROID_HOME\' environment variable. Try setting setting it manually.\n' +
-                'Failed to find \'android\' command in your \'PATH\'. Try update your \'PATH\' to include path to valid SDK directory.');
-        }
-        if (!fs.existsSync(process.env['ANDROID_HOME'])) {
-            throw new CordovaError('\'ANDROID_HOME\' environment variable is set to non-existent path: ' + process.env['ANDROID_HOME'] +
-=======
             throw new Error('Failed to find \'ANDROID_HOME\' environment variable. Try setting setting it manually.\n' +
                 'Failed to find \'android\' command in your \'PATH\'. Try update your \'PATH\' to include path to valid SDK directory.');
         }
         if (!fs.existsSync(process.env['ANDROID_HOME'])) {
             throw new Error('\'ANDROID_HOME\' environment variable is set to non-existent path: ' + process.env['ANDROID_HOME'] +
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
                 '\nTry update it manually to point to valid SDK directory.');
         }
     });
 };
 
-<<<<<<< HEAD
-module.exports.getAbsoluteAndroidCmd = function () {
-    var cmd = forgivingWhichSync('android');
-    if (process.platform === 'win32') {
-        return '"' + cmd + '"';
-    }
-    return cmd.replace(/(\s)/g, '\\$1');
-=======
 module.exports.getAbsoluteAndroidCmd = function() {
     return forgivingWhichSync('android').replace(/(\s)/g, '\\$1');
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 };
 
 module.exports.check_android_target = function(valid_target) {
@@ -298,11 +251,7 @@ module.exports.check_android_target = function(valid_target) {
         }
 
         var androidCmd = module.exports.getAbsoluteAndroidCmd();
-<<<<<<< HEAD
-        throw new CordovaError('Please install Android target: "' + valid_target + '".\n\n' +
-=======
         throw new Error('Please install Android target: "' + valid_target + '".\n\n' +
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
             'Hint: Open the SDK manager by running: ' + androidCmd + '\n' +
             'You will require:\n' +
             '1. "SDK Platform" for ' + valid_target + '\n' +

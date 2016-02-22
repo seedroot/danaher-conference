@@ -4,9 +4,6 @@
         "uninstalled": []
     },
     "config_munge": {
-<<<<<<< HEAD
-        "files": {}
-=======
         "files": {
             "res/xml/config.xml": {
                 "parents": {
@@ -33,17 +30,13 @@
                 }
             }
         }
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
-<<<<<<< HEAD
-=======
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
->>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
         }
     },
     "dependent_plugins": {}
