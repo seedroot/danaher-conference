@@ -79,11 +79,16 @@ function onMessageFromNative(msg) {
         case 'searchbutton':
         // App life cycle events
         case 'pause':
+<<<<<<< HEAD
+=======
+        case 'resume':
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
         // Volume events
         case 'volumedownbutton':
         case 'volumeupbutton':
             cordova.fireDocumentEvent(action);
             break;
+<<<<<<< HEAD
         case 'resume':
             if(arguments.length > 1 && msg.pendingResult) {
                 if(arguments.length === 2) {
@@ -99,6 +104,8 @@ function onMessageFromNative(msg) {
             }
             cordova.fireDocumentEvent(action, msg);
             break;
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
         default:
             throw new Error('Unknown event action ' + action);
     }

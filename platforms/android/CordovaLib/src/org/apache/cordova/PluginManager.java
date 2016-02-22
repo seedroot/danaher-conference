@@ -26,7 +26,10 @@ import org.json.JSONException;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
+<<<<<<< HEAD
 import android.os.Bundle;
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 import android.os.Debug;
 import android.util.Log;
 
@@ -48,8 +51,11 @@ public class PluginManager {
     private final CordovaWebView app;
     private boolean isInitialized;
 
+<<<<<<< HEAD
     private CordovaPlugin permissionRequester;
 
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     public PluginManager(CordovaWebView cordovaWebView, CordovaInterface cordova, Collection<PluginEntry> pluginEntries) {
         this.ctx = cordova;
         this.app = cordovaWebView;
@@ -511,6 +517,7 @@ public class PluginManager {
             }
         }
     }
+<<<<<<< HEAD
 
     public Bundle onSaveInstanceState() {
         Bundle state = new Bundle();
@@ -524,4 +531,6 @@ public class PluginManager {
         }
         return state;
     }
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 }

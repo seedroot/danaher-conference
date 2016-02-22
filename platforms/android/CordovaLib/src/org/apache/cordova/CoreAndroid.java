@@ -19,6 +19,13 @@
 
 package org.apache.cordova;
 
+<<<<<<< HEAD
+=======
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.LOG;
+import org.apache.cordova.PluginResult;
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,8 +48,11 @@ class CoreAndroid extends CordovaPlugin {
     protected static final String TAG = "CordovaApp";
     private BroadcastReceiver telephonyReceiver;
     private CallbackContext messageChannel;
+<<<<<<< HEAD
     private PluginResult pendingResume;
     private final Object messageChannelLock = new Object();
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 
     /**
      * Send an event to be fired on the Javascript side.
@@ -110,6 +120,7 @@ class CoreAndroid extends CordovaPlugin {
                 this.exitApp();
             }
 			else if (action.equals("messageChannel")) {
+<<<<<<< HEAD
                 synchronized(messageChannelLock) {
                     messageChannel = callbackContext;
                     if (pendingResume != null) {
@@ -117,6 +128,9 @@ class CoreAndroid extends CordovaPlugin {
                         pendingResume = null;
                     }
                 }
+=======
+                messageChannel = callbackContext;
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
                 return true;
             }
 
@@ -252,9 +266,12 @@ class CoreAndroid extends CordovaPlugin {
         else if (button.equals("volumedown")) {
             webView.setButtonPlumbedToJs(KeyEvent.KEYCODE_VOLUME_DOWN, override);
         }
+<<<<<<< HEAD
         else if (button.equals("menubutton")) {
             webView.setButtonPlumbedToJs(KeyEvent.KEYCODE_MENU, override);
         }
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     }
 
     /**
@@ -320,6 +337,7 @@ class CoreAndroid extends CordovaPlugin {
         } catch (JSONException e) {
             LOG.e(TAG, "Failed to create event message", e);
         }
+<<<<<<< HEAD
         sendEventMessage(new PluginResult(PluginResult.Status.OK, obj));
     }
 
@@ -327,6 +345,12 @@ class CoreAndroid extends CordovaPlugin {
         payload.setKeepCallback(true);
         if (messageChannel != null) {
             messageChannel.sendPluginResult(payload);
+=======
+        PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, obj);
+        pluginResult.setKeepCallback(true);
+        if (messageChannel != null) {
+            messageChannel.sendPluginResult(pluginResult);
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
         }
     }
 
@@ -338,6 +362,7 @@ class CoreAndroid extends CordovaPlugin {
     {
         webView.getContext().unregisterReceiver(this.telephonyReceiver);
     }
+<<<<<<< HEAD
 
     /**
      * Used to send the resume event in the case that the Activity is destroyed by the OS
@@ -357,4 +382,6 @@ class CoreAndroid extends CordovaPlugin {
             }
         }
     }
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 }

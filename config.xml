@@ -8,7 +8,11 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
+<<<<<<< HEAD
     <plugin name="cordova-plugin-whitelist" spec="1" />
+=======
+    <plugin name="cordova-plugin-whitelist" version="1" />
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

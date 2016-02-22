@@ -21,9 +21,13 @@
 
 /* jshint node: true */
 
+<<<<<<< HEAD
 'use strict';
 
 var events = require('cordova-common').events;
+=======
+"use strict";
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 
 /*
  * Retry a promise-returning function a number of times, propagating its
@@ -58,7 +62,11 @@ module.exports.retryPromise = function (attemts_left, promiseFunction) {
                 throw error;
             }
 
+<<<<<<< HEAD
             events.emit('verbose', 'A retried call failed. Retrying ' + attemts_left + ' more time(s).');
+=======
+            console.log("A retried call failed. Retrying " + attemts_left + " more time(s).");
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 
             // retry call self again with the same arguments, except attemts_left is now lower
             var fullArguments = [attemts_left, promiseFunction].concat(promiseFunctionArguments);

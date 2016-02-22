@@ -1,0 +1,247 @@
+/*@import url(https://fonts.googleapis.com/css?family=Raleway);*/
+@font-face {
+	src:url('../font/raleway.woff') format('woff');
+}
+
+.body {
+	font-family: 'Raleway', sans-serif;
+	background: radial-gradient(circle at top right, #fff, #f3f3f3 , #fff);
+	height: 100%;	
+}
+.row {
+	padding: 0;
+	margin: 0;
+}
+.main {
+	height: 100%;
+	width: 100%;
+}
+.img, .header, .logo, .form, .signup {
+	padding-right: 0 !important; 
+	padding-left: 0 !important;
+}
+.header {z-index: 100;}
+.header-text {
+	z-index: 5;
+	position: fixed;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	margin-bottom: 3px;
+	color: #fff;
+	width: 100%;
+	font-size: 170%;
+	background: #349CCF;
+	box-shadow: 3px 3px 10px #747474;
+}
+.back {
+	-ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+    margin-left: 1%;
+    margin-top: -1%;
+}
+.form-selfie {
+    z-index: 10;
+    height: 100%;
+    padding-top: 30%;
+    margin-top: 0%;
+    padding-bottom: 10%;
+    position: relative;
+    background: transparent;
+    -webkit-transition: box-shadow 0.5s;
+
+}
+.img-btn {
+	margin: 4% 12% 0 12%;
+	width: 76%;
+	height: 40px;
+	font-size: 140%;
+	font-weight: 100;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 1.5px;
+	border-radius: 5px;
+}
+.profile {
+	margin-bottom: 5%;
+}
+.img-next {
+	background: #349CCF;
+	color: #fff;
+}
+.selfie {
+	position: fixed;
+    margin-top: 14%;
+    background: url("../img/user.png") no-repeat center;
+    background-size: 150%;
+    -webkit-filter: grayscale(100%)blur(4px);
+    width: 100%;
+    height: 30vh;
+
+}
+.selfie-front {
+	z-index: 5;
+	position: fixed;
+	margin-top: 22%;
+	border-radius: 50%;
+	margin-left: 30%;
+	background: url("../img/user.png") no-repeat center top;
+	width: 40vw;
+	height: 40vw;
+	border: 2px solid #ccc;
+
+}
+.edit {
+	z-index: 6;
+	position: fixed;
+	margin-top: 25%;
+	border-radius: 50%;
+	margin-left: 60%;
+	background: #349CCF;
+	width: 12vw;
+	height: 12vw;
+	border: 2px solid #ccc;
+}
+.pen {
+	margin: 20%;
+}
+.form {
+    z-index: 10;
+    padding-top: 1%;
+    margin-top: 67%;
+    padding-bottom: 10%;
+    position: relative;
+    background: #FAFAFA;
+    -webkit-transition: box-shadow 0.5s;
+}	
+
+.form-control {
+	margin: 5% 0 2%;
+	height: 40px;
+	padding: 0;
+	background: transparent !important;
+	border: none;
+	border-bottom: 1px solid #349CCF;
+	-webkit-box-shadow: none;
+    		box-shadow: none;
+}
+.generic {
+    margin-top: -5%;}
+.tell-us {
+    height: 100%;
+	margin-top: 0%;
+    padding-top: 20%;
+
+}
+.text {
+	border-radius: 5px !important;
+	border: 1px solid #349CCF;
+}
+.form-control:focus {
+	outline: none !important;
+}
+.input-group {display: block; border-radius: 5%;}
+.input {
+	margin: 3% 12% 2% 12%;
+	box-shadow: none;
+	background: transparent !important;
+	text-align: left;
+}
+.input:focus {
+	outline: none !important;
+}
+.confirm {
+	letter-spacing: 1px;
+	word-spacing: 2px;
+}
+.form-control:placeholder-shown {
+  letter-spacing: 2px;
+  font-size: 110%;
+}
+.forgot-pswd{
+	margin-left: 14%;
+	color: #b8b8b8;
+	font-size: 100%;
+	letter-spacing: 1.5px;
+}
+
+.bttn
+{
+	margin: 4% 12% 0 12%;
+	width: 76%;
+	height: 40px;
+	font-size: 140%;
+	font-weight: 100;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 1.5px;
+	color: #fff;
+	background: #349CCF;
+}
+
+dl {margin-bottom: 0;}
+.thank {
+	margin: 60% 10% 0 10%;
+	color:  #349CCF;
+}
+textarea:focus, input:focus, .uneditable-input:focus {  
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.075) inset, 0 0 8px rgba(255, 255, 255, 0.075) !important;
+    outline: 0 none !important;
+}
+.mcq1 {
+	margin-top: 25%;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+	line-height: 1.5;
+}
+.mcq2 {
+	margin-top: 45%;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+	line-height: 1.5;
+}
+.mcq3 {
+	margin-top: 50%;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+	line-height: 1.5;
+}
+.mcq4 {
+	margin-top: 50%;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+	line-height: 1.5;
+}
+.question {
+	font-size: 130%;
+}
+
+.popup {
+	z-index: 100;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+}
+.camera {
+	height: 150px;
+	width: 150px;
+	position: fixed;
+	padding-left: 7%; 
+	top: 25%;
+	left:30%;
+	border-radius: 50%;
+}
+.gallery {
+	height: 150px;
+	width: 150px;
+	position: fixed;
+	padding-left: 8%; 
+	top: 55%;
+	left:30%;
+	border-radius: 50%;
+}
+.closebtn {
+	text-align: right;
+	padding-right: 6%;
+	padding-top: 10%;
+	color: #fff;
+}

@@ -19,6 +19,7 @@
        under the License.
 */
 
+<<<<<<< HEAD
 var args  = process.argv;
 var Api = require('./Api');
 var nopt = require('nopt');
@@ -46,3 +47,25 @@ new Api().build(buildOpts)
     console.error(err.stack);
     process.exit(2);
 });
+=======
+var build = require('./lib/build'),
+    reqs  = require('./lib/check_reqs'),
+    args  = process.argv;
+
+// Support basic help commands
+if(args[2] == '--help' ||
+   args[2] == '/?' ||
+   args[2] == '-h' ||
+   args[2] == 'help' ||
+   args[2] == '-help' ||
+   args[2] == '/help') {
+    build.help();
+} else {
+    reqs.run().done(function() {
+        return build.run(args.slice(2));
+    }, function(err) {
+        console.error(err);
+        process.exit(2);
+    });
+}
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c

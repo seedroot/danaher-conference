@@ -26,11 +26,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+=======
+import android.content.res.Configuration;
+import android.net.Uri;
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -78,7 +83,11 @@ public class CordovaPlugin {
     public String getServiceName() {
         return serviceName;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     /**
      * Executes the request.
      *
@@ -176,6 +185,7 @@ public class CordovaPlugin {
     }
 
     /**
+<<<<<<< HEAD
      * Called when the Activity is being destroyed (e.g. if a plugin calls out to an external
      * Activity and the OS kills the CordovaActivity in the background). The plugin should save its
      * state in this method only if it is awaiting the result of an external Activity and needs
@@ -199,6 +209,8 @@ public class CordovaPlugin {
     public void onRestoreStateForActivityResult(Bundle state, CallbackContext callbackContext) {}
 
     /**
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
      * Called when a message is sent to plugin.
      *
      * @param id            The message id
@@ -347,7 +359,11 @@ public class CordovaPlugin {
      */
     public void onReset() {
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     /**
      * Called when the system received an HTTP authentication request. Plugin can use
      * the supplied HttpAuthHandler to process this auth challenge.
@@ -356,14 +372,24 @@ public class CordovaPlugin {
      * @param handler           The HttpAuthHandler used to set the WebView's response
      * @param host              The host requiring authentication
      * @param realm             The realm for which authentication is required
+<<<<<<< HEAD
      *
      * @return                  Returns True if plugin will resolve this auth challenge, otherwise False
      *
+=======
+     * 
+     * @return                  Returns True if plugin will resolve this auth challenge, otherwise False
+     * 
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
      */
     public boolean onReceivedHttpAuthRequest(CordovaWebView view, ICordovaHttpAuthHandler handler, String host, String realm) {
         return false;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
     /**
      * Called when he system received an SSL client certificate request.  Plugin can use
      * the supplied ClientCertRequest to process this certificate challenge.
@@ -385,6 +411,7 @@ public class CordovaPlugin {
      */
     public void onConfigurationChanged(Configuration newConfig) {
     }
+<<<<<<< HEAD
 
     /**
      * Called by the Plugin Manager when we need to actually request permissions
@@ -419,4 +446,6 @@ public class CordovaPlugin {
                                           int[] grantResults) throws JSONException {
 
     }
+=======
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
 }

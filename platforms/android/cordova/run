@@ -19,6 +19,7 @@
        under the License.
 */
 
+<<<<<<< HEAD
 var Api = require('./Api');
 var nopt = require('nopt');
 var path = require('path');
@@ -49,3 +50,21 @@ new Api().run(runOpts)
     console.error(err, err.stack);
     process.exit(2);
 });
+=======
+var run  = require('./lib/run'),
+    reqs = require('./lib/check_reqs'),
+    args = process.argv;
+
+// Support basic help commands
+if (args[2] == '--help' || args[2] == '/?' || args[2] == '-h' ||
+                    args[2] == 'help' || args[2] == '-help' || args[2] == '/help') {
+    run.help(args);
+} else {
+    reqs.run().done(function() {
+        return run.run(args);
+    }, function(err) {
+        console.error('ERROR: ' + err);
+        process.exit(2);
+    });
+}
+>>>>>>> 028b047fcd26a4b5e066a23f02182bd08272146c
