@@ -3,7 +3,7 @@
 		<p class="header-text">Upload Selfie</p>
 	</center>
 </header>
-
+<label class="err" ng-model="vm.msg"></label>
 <div class="col-lg-12 form-selfie">
 	
 	<div class="col-lg-12 img">
@@ -13,13 +13,13 @@
 		<center>
 			<button class="btn btn-default  img-btn">Click a selfie</button>
 		</center>
-		<center>
+		<center class="hide">
 			<button class="btn btn-default img-btn">Upload from gallery</button>
 		</center>
 	</div>
     
 	<center>
-		<button class="btn btn-default img-btn img-next" onclick="location.href='basic_info.html';">Next
+		<button class="btn btn-default img-btn img-next" ui-sref="basic">Next
 		</button>
 	</center>
-</div>
+</div>	

@@ -1,8 +1,14 @@
 (function () {
 	'use strict'
 
+	var config = {
+		app: Built.App('blte2d77fe90da1fd4d').Class('attendees'),
+		upload: Built.App('blt5d4sample2633b').Upload()
+	}
+
 	angular
 		.module('dlc', ['ngCordova', 'ui.router'])
+		.constant('config', config)
 		.config(appConfig)
 		//.controller('MainController', MainController)
 

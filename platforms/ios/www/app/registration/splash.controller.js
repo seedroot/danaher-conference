@@ -10,7 +10,7 @@
 		var vm = this;
 		console.log('SplashController');
 		setTimeout(function() {
-			$state.go('basic')
+			$state.go('login')
 		}, 1000);
 	}
 })();

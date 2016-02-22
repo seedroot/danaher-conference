@@ -7,32 +7,35 @@
 </div>
 <div class="selfie-front">	
 </div>
-
-<div class="col-sm-12 form" id="form">
+<div class="edit">
+	<img class="pen" src="img/pen.svg">
+</div>
+<label class="err" ng-model="vm.msg"></label>
+<div class="col-sm-12 form" id="form" style="background: #f5f5f5;">
 	
       <center>
       	 <dl>
               <dd>
-					<div class="input-group input col-sm-12">
-				      <input type="text" class="form-control"  placeholder="Full Name">
+					<div class="input-group input-group1 input col-sm-12">
+				      <input type="text" ng-model="vm.attendee.full_name" class="form-control"  placeholder="Full Name">
 				    </div>
-					<div class="input-group input col-sm-12">
-					    <input type="phone" class="form-control"  placeholder="Contact Number">
+					<div class="input-group input-group1 input col-sm-12">
+					    <input type="phone" ng-model="vm.attendee.contact_number" class="form-control"  placeholder="Contact Number">
 					</div>
-					<div class="input-group input col-sm-12">
-					    <input type="email" class="form-control"  placeholder="Email Address">
+					<div class="input-group input-group1 input col-sm-12">
+					    <input type="email" ng-model="vm.attendee.email" class="form-control"  placeholder="Email Address">
 					</div>
-					<div class="input-group input col-sm-12">
-					    <input type="text" class="form-control"  placeholder="Company Name">
+					<div class="input-group input-group1 input col-sm-12">
+					    <input type="text" ng-model="vm.attendee.company_name" class="form-control"  placeholder="Company Name">
 					</div>
-					<div class="input-group input col-sm-12">
-					    <input type="text" class="form-control"  placeholder="Designation">
+					<div class="input-group input-group1 input col-sm-12">
+					    <input type="text" ng-model="vm.attendee.designation" class="form-control"  placeholder="Designation">
 					</div>
-					<div class="input-group input col-sm-12">
-					    <input type="text" class="form-control "  placeholder="Arrival Date/ 03 /2016">
+					<div class="input-group input-group1 input col-sm-12">
+					    <input type="text" ng-model="vm.attendee.arrival_date" class="form-control "  placeholder="MMM-DD-YYYY">
 					</div>
-					<div class="input-group input col-sm-12">
-					    <input type="text" class="form-control"  placeholder="Depature Date/ 03 /2016">
+					<div class="input-group input-group1 input col-sm-12">
+					    <input type="text" ng-model="vm.attendee.departure_date" class="form-control"  placeholder="MMM-DD-YYYY">
 					</div>
               </dd>
               
@@ -40,19 +43,7 @@
       </center>
     
 	<center>
-		<button class="btn btn-default bttn">Next
+		<button class="btn btn-default bttn" ng-click="vm.next()">Next
 		</button>
 	</center>
 </div>
-<script type="text/javascript">
-	document.onscroll = function (e) {
-		if(window.scrollY > 0){
-			document.getElementById('form').style.border = 0;
-			document.getElementById('form').style.boxShadow = "0px 0px 20px rgba(50, 50, 50, 0.75)";
-		}
-		else{
-			//document.getElementById('form').style.borderTop = "0.1em solid black";
-			document.getElementById('form').style.boxShadow = "";
-		}
-	}
-</script>

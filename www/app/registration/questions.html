@@ -1,6 +1,6 @@
 <header class="col-sm-12 header">
 		<p class="header-text">
-			<img class="back" src="img/next.svg" onclick="location.href='tell_us.html';"><span> Generic Questions</span>	
+			<img class="back" src="img/next.svg"><span> Generic Questions</span>	
 		</p>
 </header>
 <div class="col-sm-12 form generic" id="form">
@@ -11,50 +11,50 @@
 					<div class="input-group input col-sm-12 question">
 						<h4 class="mcq1">+ How long have you been associated with Danaher Corporation?</h4>
 						<div class="col-sm-12 col-xs-12">
-					    	<input type="radio"> 0 - 1 year</div>
+					    	<input type="radio" value=" 0 - 1 year" name="how_long_have_you_been_associated_with_danaher_corporation" ng-model="vm.attendee.how_long_have_you_been_associated_with_danaher_corporation"> 0 - 1 year</div>
 						<div class="col-sm-12 col-xs-12">
-					     	<input type="radio"> 2 - 5 years</div>
+					     	<input type="radio" value=" 2 - 5 years" name="how_long_have_you_been_associated_with_danaher_corporation" ng-model="vm.attendee.how_long_have_you_been_associated_with_danaher_corporation"> 2 - 5 years</div>
 						<div class="col-sm-12 col-xs-12">
-							<input type="radio"> 5 - 10 years
+							<input type="radio" value=" 5 - 10 years" name="how_long_have_you_been_associated_with_danaher_corporation" ng-model="vm.attendee.how_long_have_you_been_associated_with_danaher_corporation"> 5 - 10 years
 						</div>
 						<div class="col-sm-12 col-xs-12">
-							<input type="radio" > 10+ years
+							<input type="radio" value=" 10+ years" name="how_long_have_you_been_associated_with_danaher_corporation" ng-model="vm.attendee.how_long_have_you_been_associated_with_danaher_corporation"> 10+ years
 						</div>    
 					</div>
 					<div class="input-group input col-sm-12 question">
 						<h4 class="mcq2">+ You associate Danaher with</h4>
 						<div class="col-sm-12 col-xs-12">
-					    	<input type="radio" > Customer</div>
+					    	<input type="radio" name="you_associate_danaher_with" value="Customer" ng-model="vm.attendee.you_associate_danaher_with"> Customer</div>
 						<div class="col-sm-12 col-xs-12">
-					     	<input type="radio"> Winning Team</div>
+					     	<input type="radio" name="you_associate_danaher_with" value="Winning Team" ng-model="vm.attendee.you_associate_danaher_with"> Winning Team</div>
 						<div class="col-sm-12 col-xs-12">
-							<input type="radio"> Innovation
+							<input type="radio" name="you_associate_danaher_with" value="Innovation" ng-model="vm.attendee.you_associate_danaher_with"> Innovation
 						</div>
 						<div class="col-sm-12 col-xs-12">
-							<input type="radio" > Kaizen
+							<input type="radio" name="you_associate_danaher_with" value="Kaizen" ng-model="vm.attendee.you_associate_danaher_with"> Kaizen
 						</div>    
 					</div>
 					<div class="input-group input col-sm-12 question">
 						<h4 class="mcq3">+ What does DLC 2016 mean to you?</h4>
 						<div class="col-sm-12 col-xs-12">
-					    	<input type="radio" > Best Practice Sharing </div>
+					    	<input type="radio" name="what_does_dlc_2016_mean_to_you" value="Best Practice Sharing" ng-model="vm.attendee.what_does_dlc_2016_mean_to_you"> Best Practice Sharing </div>
 						<div class="col-sm-12 col-xs-12">
-					     	<input type="radio">Connecting with Leadership</div>
+					     	<input type="radio" name="what_does_dlc_2016_mean_to_you" value="Connecting with Leadership" ng-model="vm.attendee.what_does_dlc_2016_mean_to_you">Connecting with Leadership</div>
 						<div class="col-sm-12 col-xs-12">
-							<input type="radio"> Learning
+							<input type="radio" name="what_does_dlc_2016_mean_to_you" value="Learning" ng-model="vm.attendee.what_does_dlc_2016_mean_to_you"> Learning
 						</div>
 						<div class="col-sm-12 col-xs-12">
-							<input type="radio" > Belonging to One Team
+							<input type="radio" name="what_does_dlc_2016_mean_to_you" value="Belonging to One Team" ng-model="vm.attendee.what_does_dlc_2016_mean_to_you"> Belonging to One Team
 						</div>    
 					</div>
 					<div class="input-group input col-sm-12 question">
 						<h4 class="mcq4">+ Age Profile?</h4>
 						<div class="col-sm-6 col-xs-6">
-					    	<input type="radio" > Below 35</div>
+					    	<input type="radio" name="age_profile" value=" Below 35" ng-model="vm.attendee.age_profile"> Below 35</div>
 						<div class="col-sm-6 col-xs-6">
-					     	<input type="radio">  35 to 40</div>
+					     	<input type="radio" name="age_profile" value="  35 to 40" ng-model="vm.attendee.age_profile">  35 to 40</div>
 						<div class="col-sm-6 col-xs-6">
-							<input type="radio"> 40+
+							<input type="radio" name="age_profile" value=" 40+" ng-model="vm.attendee.age_profile"> 40+
 						</div>   
 					</div>
               </dd>
@@ -63,19 +63,7 @@
       </center>
     
 	<center>
-		<button class="btn btn-default bttn" onclick="location.href='thank_you.html';">Update
+		<button class="btn btn-default bttn" ng-click="vm.next()">Update
 		</button>
 	</center>
 </div>
-<script type="text/javascript">
-	document.onscroll = function (e) {
-		if(window.scrollY > 0){
-			document.getElementById('form').style.border = 0;
-			document.getElementById('form').style.boxShadow = "0px 0px 20px rgba(50, 50, 50, 0.75)";
-		}
-		else{
-			//document.getElementById('form').style.borderTop = "0.1em solid black";
-			document.getElementById('form').style.boxShadow = "";
-		}
-	}
-</script>

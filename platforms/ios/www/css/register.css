@@ -1,8 +1,6 @@
-/*@import url(https://fonts.googleapis.com/css?family=Raleway);*/
 @font-face {
 	src:url('../font/raleway.woff') format('woff');
 }
-
 .body {
 	font-family: 'Raleway', sans-serif;
 	background: radial-gradient(circle at top right, #fff, #f3f3f3 , #fff);
@@ -49,13 +47,14 @@
     position: relative;
     background: transparent;
     -webkit-transition: box-shadow 0.5s;
-
+    background: url("../img/water1.png") no-repeat  center center;
+    background-size: 120%;
 }
 .img-btn {
 	margin: 4% 12% 0 12%;
 	width: 76%;
 	height: 40px;
-	font-size: 140%;
+	font-size: 120%;
 	font-weight: 100;
 	font-family: 'Raleway', sans-serif;
 	letter-spacing: 1.5px;
@@ -69,7 +68,7 @@
 	color: #fff;
 }
 .selfie {
-	position: fixed;
+	    position: fixed;
     margin-top: 14%;
     background: url("../img/user.png") no-repeat center;
     background-size: 150%;
@@ -110,13 +109,16 @@
     margin-top: 67%;
     padding-bottom: 10%;
     position: relative;
-    background: #FAFAFA;
+    background: url("../img/water1.png") no-repeat fixed  center center;
+    background-size: 120%;
     -webkit-transition: box-shadow 0.5s;
 }	
 
+.input-group1 {display: block; border-radius: 5%;}
 .form-control {
-	margin: 5% 0 2%;
+
 	height: 40px;
+	margin: 5% 0 2%;
 	padding: 0;
 	background: transparent !important;
 	border: none;
@@ -125,21 +127,28 @@
     		box-shadow: none;
 }
 .generic {
+	height: auto;
     margin-top: -5%;}
 .tell-us {
     height: 100%;
 	margin-top: 0%;
     padding-top: 20%;
+    background: url("../img/water1.png") no-repeat  center center;
+    background-size: 120%;
 
 }
+.thn {
+	background: url("../img/water1.png") no-repeat  center center;
+    background-size: 120%;
+}
 .text {
+	background: #f5f5f5 !important;
 	border-radius: 5px !important;
 	border: 1px solid #349CCF;
 }
 .form-control:focus {
 	outline: none !important;
 }
-.input-group {display: block; border-radius: 5%;}
 .input {
 	margin: 3% 12% 2% 12%;
 	box-shadow: none;
@@ -179,7 +188,7 @@
 
 dl {margin-bottom: 0;}
 .thank {
-	margin: 60% 10% 0 10%;
+	margin: 65% 10% 0 10%;
 	color:  #349CCF;
 }
 textarea:focus, input:focus, .uneditable-input:focus {  
@@ -187,25 +196,25 @@ textarea:focus, input:focus, .uneditable-input:focus {
     outline: 0 none !important;
 }
 .mcq1 {
-	margin-top: 25%;
+	margin-top: 40%;
 	letter-spacing: 1px;
 	word-spacing: 2px;
 	line-height: 1.5;
 }
 .mcq2 {
-	margin-top: 45%;
+	margin-top: 10%;
 	letter-spacing: 1px;
 	word-spacing: 2px;
 	line-height: 1.5;
 }
 .mcq3 {
-	margin-top: 50%;
+	margin-top: 10%;
 	letter-spacing: 1px;
 	word-spacing: 2px;
 	line-height: 1.5;
 }
 .mcq4 {
-	margin-top: 50%;
+	margin-top: 10%;
 	letter-spacing: 1px;
 	word-spacing: 2px;
 	line-height: 1.5;
@@ -244,4 +253,72 @@ textarea:focus, input:focus, .uneditable-input:focus {
 	padding-right: 6%;
 	padding-top: 10%;
 	color: #fff;
+}
+.logo {margin-top: 10%;}
+
+.form1 {
+	padding-top: 7%;
+	margin-bottom: 0;
+	background: url("../img/water1.png") no-repeat  center center;
+    background-size: 120%;
+
+}
+.form1-control {
+	height: 40px;
+	margin: 0;
+	background: transparent !important;
+	border: 1px solid;
+	border-color:  #349CCF;
+	border-radius: 5px;
+	border-left-color: transparent;
+	-webkit-box-shadow: none;
+    		box-shadow: none;
+}
+.input1 {
+	margin: 2% 12% 5% 12%;
+	box-shadow: none;
+	background: transparent !important;
+	border-radius: 0;
+}
+.input-group-addon {
+	background: transparent;
+	border-color:  #349CCF;
+	box-shadow: none;
+	border-radius: 5px;
+	-webkit-box-shadow: none;
+    		box-shadow: none;
+}
+.form1-control:placeholder-shown {
+  letter-spacing: 2px;
+  font-size: 110%;
+}
+.forgot-pswd{
+	margin-left: 14%;
+	color: #b8b8b8;
+	font-size: 100%;
+	letter-spacing: 1.5px;
+}
+
+.signin
+{
+	margin: 4% 12% 0 12%;
+	width: 76%;
+	height: 40px;
+	font-size: 140%;
+	font-weight: 100;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 1.5px;
+	background: #349CCF;
+	color: #fff;
+	border-radius: 5px;
+}
+.err {
+	z-index: 50;
+	color: red;
+	margin: 1% 0 0 2%;
+	position: fixed;
+	top: 10%;
+}
+.err-login {
+	top: 2%;
 }

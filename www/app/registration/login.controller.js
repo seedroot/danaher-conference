@@ -10,28 +10,28 @@
 		var vm = this;
 		vm.login = login
 
-		var attendees = config.app.Query();
-
 		function login () {
 			if(vm.email.trim().length > 0 && vm.password.trim().length > 0){
+				var attendees = Built.App('blte2d77fe90da1fd4d').Class('attendees').Query();
+				
 				attendees
 					.where('email', vm.email)
 					.exec()
 					.then(function (attendee) {
 						attendee = attendee[0].toJSON();
 						if(attendee.password == vm.password){
-							window.localStorage.attendee = attendee;
+							window.localStorage.attendee = JSON.stringify(attendee);
 							$state.go('selfie');
 						}
 						else{
-							console.log('incorrect login creds');
+							vm.msg = "incorrect login credentials"
 						}
 					}, function (error) {
-						console.log(error);
+						vm.msg = "Something went wrong, please try again"
 					})
 			}
 			else{
-				console.log('empty values');
+				vm.msg = "Enter login credentials"
 			}
 		}
 	}

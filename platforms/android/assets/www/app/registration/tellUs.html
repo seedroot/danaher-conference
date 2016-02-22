@@ -3,6 +3,7 @@
 			<img class="back" src="img/next.svg" onclick="location.href='basic_info.html';"><span> About you</span>	
 		</p>
 </header>
+<label class="err" ng-model="vm.msg"></label>
 <div class="col-sm-12 form tell-us" id="form">
 	
       <center>
@@ -10,7 +11,7 @@
               <dd>
 					<div class="input-group input col-sm-12">
 						<h3>Tell something you want to share about yourself that we don’t know yet</h3>
-					    <textarea type="text" rows="5" class="form-control text"  placeholder=" In 25 words"></textarea>
+					    <textarea type="text" rows="5" ng-model="vm.attendee.something_to_share" class="form-control text"  placeholder=" In 25 words"></textarea>
 					</div>
 					
               </dd>
@@ -19,9 +20,8 @@
       </center>
     
 	<center>
-		<button class="btn btn-default bttn" onclick="location.href='additional.html';">Next
+		<button class="btn btn-default bttn" ng-click="vm.next()">Next
 		</button>
-		<img src="img/water.png">
 	</center>
 
 </div>
